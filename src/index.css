@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-bg: #000000;
+  --brand-text: #ffffff;
+  --accent: #a3e635;
+}
+
+body {
+  @apply bg-brand-bg text-brand-text m-0 p-0;
+  min-height: 100vh;
+}
+
