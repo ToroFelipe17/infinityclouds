@@ -1,18 +1,19 @@
-import './index.css';
-import "./styles/globals.css";
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
-import Productos from './components/Productos.jsx';
+import Home from './pages/Home.jsx';
+import Shop from './pages/Shop.jsx';
 
-function App() {
+export default function App() {
   return (
-    <Layout>
-      <div className="flex flex-col items-center justify-center text-center py-16 px-4">
-        <h1 className="text-5xl font-bold mb-4">InfinityClouds</h1>
-        <p className="text-lg text-gray-300 mb-8">¡Listos para comenzar!</p>
-      </div>
-      <Productos />
-    </Layout>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
-export default App;
-

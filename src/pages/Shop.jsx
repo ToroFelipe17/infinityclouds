@@ -1,10 +1,10 @@
-// src/components/Productos.jsx
+// src/pages/Shop.jsx
 import React, { useState, useEffect } from 'react';
+import SidebarFilters from '../components/SidebarFilters.jsx';
 import { motion } from 'framer-motion';
-import SidebarFilters from './SidebarFilters.jsx';
-import { productos } from '../data/productos.js';
+import { productos } from '../data/productos.js'; // Update the path as needed
 
-export default function Productos() {
+export default function Shop() {
   const [activeFilters, setActiveFilters] = useState({});
   const [filteredList, setFilteredList] = useState(productos);
 
@@ -36,10 +36,13 @@ export default function Productos() {
   return (
     <section id="tienda" className="py-16 bg-gray-900 dark:bg-gray-100">
       <h3 className="text-3xl font-semibold text-center text-brand-text dark:text-brand mb-12">
-        Productos Más Vendidos
+
       </h3>
       <div className="container mx-auto flex flex-col md:flex-row">
+        {/* Sidebar */}
         <SidebarFilters onFilter={handleFilter} />
+
+        {/* Productos */}
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
           {filteredList.map((p, i) => (
             <motion.div
@@ -50,24 +53,20 @@ export default function Productos() {
               className="bg-black/30 dark:bg-white/30 p-6 rounded-2xl flex flex-col items-center"
             >
               <div className="w-full h-40 bg-gray-800 dark:bg-gray-200 mb-4 flex items-center justify-center rounded-lg">
-                <img src={p.imagen} alt={p.nombre} className="h-24 object-contain" />
+                <span className="text-6xl text-gray-600 dark:text-gray-400">∞</span>
               </div>
               <h4 className="text-xl font-bold mb-2 text-center text-brand-text dark:text-brand">
                 {p.nombre}
               </h4>
-              <p className="text-sm text-gray-300 dark:text-gray-600 mb-2">
-                {p.puffs} puffs
-              </p>
+              <p className="text-sm text-gray-300 dark:text-gray-600 mb-2">{p.puffs}</p>
               <p className="text-lg font-semibold mb-4 text-brand-text dark:text-brand">
-                ${p.precio.toLocaleString('es-CL')}
+                {p.precio}
               </p>
               <button className="mt-auto bg-accent text-black font-bold py-2 px-6 rounded-full">
                 {p.preventa ? 'Encargar ahora' : 'Comprar'}
               </button>
               {p.preventa && (
-                <span className="text-xs text-gray-400 mt-2">
-                  Entrega 1–14 días
-                </span>
+                <span className="text-xs text-gray-400 mt-2">Entrega 1–14 días</span>
               )}
             </motion.div>
           ))}

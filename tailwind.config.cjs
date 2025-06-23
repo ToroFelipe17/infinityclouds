@@ -1,23 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  darkMode: 'class',
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"
+],
   theme: {
     extend: {
       colors: {
         brand: '#111111',
-        accent: '#a3e635',
+        'brand-bg': 'var(--brand-bg)',
+        'brand-text': 'var(--brand-text)',
+        accent: 'var(--accent)',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Space Grotesk', 'sans-serif'],
       },
     },
   },
   plugins: [],
 
-  corePlugins: {
-    preflight: true,
-  }
+  CorePlugins: [{
+      preflight: true,
+    }
+  ]
 }

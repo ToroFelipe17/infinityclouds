@@ -2,14 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+.listado-modelos {
+    margin-left: -10px;
+    margin-right: -10px;
+    display: grid
+;
+    grid-template-columns: repeat(auto-fit, minmax(261px, 1fr));
+}
+
+/* Smooth scroll para anclas */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variables para light/dark */
 :root {
-  --brand-bg: #000000;
-  --brand-text: #ffffff;
-  --accent: #a3e635;
+  --bg-color: #ffffff;
+  --text-color: #000000;
 }
 
+html.dark {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+}
+
+/* Estilos globales */
 body {
-  @apply bg-brand-bg text-brand-text m-0 p-0;
+  background-color: var(--bg-color) !important;
+  color:           var(--text-color) !important;
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
+/* Asegurar que #root ocupe toda la altura */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
