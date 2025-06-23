@@ -60,7 +60,7 @@ export default function Shop() {
               </h4>
               <p className="text-sm text-gray-300 dark:text-gray-600 mb-2">{p.puffs}</p>
               <p className="text-lg font-semibold mb-4 text-brand-text dark:text-brand">
-                {p.precio}
+               ${p.precio.toLocaleString('es-CL')}
               </p>
               <button className="mt-auto bg-accent text-black font-bold py-2 px-6 rounded-full">
                 {p.preventa ? 'Encargar ahora' : 'Comprar'}

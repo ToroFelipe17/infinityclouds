@@ -1,5 +1,6 @@
 // src/pages/Home.jsx
 import React from 'react';
+import {Link}from 'react-router-dom';
 import Productos from '../components/Productos.jsx';
 
 export default function Home() {
@@ -10,9 +11,9 @@ export default function Home() {
         <div className="max-w-lg">
           <img src="/assets/hero-image.png" alt="Vaporizador Destacado" className="mx-auto mb-8 rounded-lg shadow-lg" />
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Respira – Fluye – Continúa</h2>
-          <a href="/shop" className="inline-block px-6 py-3 border border-brand-text text-brand-text hover:bg-brand-text hover:text-brand transition">
+         <Link to="/shop" className="inline-block px-6 py-3 border border-brand-text text-brand-text hover:bg-brand-text hover:text-brand transition">
             Explorar Vaporizadores
-          </a>
+          </Link>
         </div>
       </section>
 
