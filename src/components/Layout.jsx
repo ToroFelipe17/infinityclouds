@@ -2,16 +2,30 @@
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../ThemeProvider.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Layout({ children }) {
   const { dark, setDark } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNav = (path) => {
+    setMenuOpen(false);
+    if (path.startsWith('/#')) {
+      const id = path.replace('/#', '');
+      navigate('/');
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      });
+    } else {
+      navigate(path);
+    }
+  };
   const links = [
     { name: 'Inicio', path: '/' },
     { name: 'Tienda', path: '/shop' },
-    { name: 'Nosotros', path: '#nosotros' },
-    { name: 'Contacto', path: '#contacto' },
+    { name: 'Nosotros', path: '/#nosotros' },
+    { name: 'Contacto', path: '/#contacto' },
   ];
 
   return (
@@ -27,13 +41,13 @@ export default function Layout({ children }) {
           {/* Desktop nav */}
           <nav className="hidden md:flex space-x-6 text-brand-text dark:text-brand-bg">
             {links.map(link => (
-              <Link
+              <button
                 key={link.name}
-                to={link.path}
+                onClick={() => handleNav(link.path)}
                 className="hover:text-accent transition-colors"
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
           </nav>
 
@@ -69,14 +83,13 @@ export default function Layout({ children }) {
             >
               <div className="px-6 py-4 space-y-4 text-brand-text dark:text-brand-bg">
                 {links.map(link => (
-                  <Link
+                  <button
                     key={link.name}
-                    to={link.path}
+                    onClick={() => handleNav(link.path)}
                     className="block hover:text-accent transition-colors"
-                    onClick={() => setMenuOpen(false)}
                   >
                     {link.name}
-                  </Link>
+                  </button>
                 ))}
               </div>
             </motion.nav>

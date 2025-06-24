@@ -31,7 +31,7 @@ export default function SidebarFilters({ onFilter }) {
   };
 
   return (
-    <div className="w-full md:w-64 bg-gray-800 dark:bg-gray-100 p-4 rounded-lg mb-8 md:mb-0">
+    <div className="w-full md:w-60 lg:w-64 xl:w-72 bg-gray-800 dark:bg-gray-100 p-4 rounded-lg mb-8 md:mb-0 md:mr-8 md:sticky md:top-24 h-max">
       {filterData.map((section, idx) => (
         <div key={section.title} className="mb-4">
           <button

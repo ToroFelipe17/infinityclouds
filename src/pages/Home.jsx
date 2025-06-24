@@ -21,22 +21,22 @@ export default function Home() {
       <section id="featured" className="py-16 px-6 bg-gray-900 dark:bg-gray-100">
         <h3 className="text-3xl font-semibold text-center text-brand-text dark:text-brand mb-12">
         </h3>
-        <Productos featuredOnly={true} />
+        <Productos featuredOnly={true} showFilters={false} />
       </section>
     {/* ¿Por qué elegirnos? */}
     <section id="nosotros" className="py-16 px-6 bg-brand text-brand-text dark:bg-white dark:text-black">
       <h3 className="text-3xl font-semibold text-center mb-8">¿Por qué elegirnos?</h3>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="flex flex-col items-center">
-          <span className="text-4xl mb-2">✔️</span>
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl">
+        <div className="flex flex-col items-center bg-gray-800 dark:bg-gray-200 p-6 rounded-xl">
+          <span className="text-4xl mb-4">✔️</span>
           <p className="text-center">Productos originales y certificados</p>
         </div>
-        <div className="flex flex-col items-center">
-          <span className="text-4xl mb-2">⚡</span>
+        <div className="flex flex-col items-center bg-gray-800 dark:bg-gray-200 p-6 rounded-xl">
+          <span className="text-4xl mb-4">⚡</span>
           <p className="text-center">Envío express disponible</p>
         </div>
-        <div className="flex flex-col items-center">
-          <span className="text-4xl mb-2">💬</span>
+        <div className="flex flex-col items-center bg-gray-800 dark:bg-gray-200 p-6 rounded-xl">
+          <span className="text-4xl mb-4">💬</span>
           <p className="text-center">Atención al cliente 24/7</p>
         </div>
       </div>
@@ -48,7 +48,7 @@ export default function Home() {
         <p className="text-brand-text dark:text-brand mb-4 md:mb-0">
           Sé el primero en recibir promociones exclusivas !!
         </p>
-        <div className="flex w-full md:w-auto">
+        <div className="flex w-full md:max-w-md">
           <input
             type="email"
             placeholder="Tu correo electrónico"
