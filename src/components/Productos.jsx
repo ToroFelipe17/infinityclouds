@@ -39,7 +39,7 @@ export default function Productos({ showFilters = true, featuredOnly = false }) 
   return (
     <section id="tienda" className="py-16 bg-gray-900 dark:bg-gray-100">
       <h3 className="text-3xl font-semibold text-center text-brand-text dark:text-brand mb-12">
-        Productos Destacado
+        Productos Destacados
 
       </h3>
       <div className="container mx-auto flex flex-col md:flex-row">
